@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import FileUpload from "../file-upload";
-import { Button } from "../ui/button";
+import { zodResolver } from '@hookform/resolvers/zod'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+import FileUpload from '../file-upload'
+import { Button } from '../ui/button'
 import {
   Dialog,
   DialogContent,
@@ -14,7 +14,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "../ui/dialog";
+} from '../ui/dialog'
 import {
   Form,
   FormControl,
@@ -22,43 +22,43 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
-import { useRouter } from "next/navigation";
+} from '../ui/form'
+import { Input } from '../ui/input'
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
-  name: z.string().nonempty("Server name is required."),
-  imageUrl: z.string().nonempty("Image URL is required."),
-});
+  name: z.string().nonempty('Server name is required.'),
+  imageUrl: z.string().nonempty('Image URL is required.'),
+})
 
 const InitialModal = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  const router = useRouter();
+  const [isMounted, setIsMounted] = useState(false)
+  const router = useRouter()
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    setIsMounted(true)
+  }, [])
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      imageUrl: "",
+      name: '',
+      imageUrl: '',
     },
-  });
-  const isLoading = form.formState.isSubmitting;
+  })
+  const isLoading = form.formState.isSubmitting
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.post("/api/servers", values);
-      form.reset();
-      router.refresh();
-      window.location.reload();
+      await axios.post('/api/servers', values)
+      form.reset()
+      router.refresh()
+      window.location.reload()
     } catch (error) {
-      TODO: "Handle error";
+      console.log(error)
     }
-  };
+  }
 
   if (!isMounted) {
-    return null;
+    return null
   }
 
   return (
@@ -80,7 +80,7 @@ const InitialModal = () => {
                 <FormField
                   name="imageUrl"
                   control={form.control}
-                  render={({ field, formState }) => (
+                  render={({ field }) => (
                     <FormItem>
                       <FormControl>
                         <FileUpload
@@ -98,7 +98,7 @@ const InitialModal = () => {
               <FormField
                 name="name"
                 control={form.control}
-                render={({ field, formState }) => (
+                render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-xs font-bold uppercase text-zinc-500 dark:text-secondary/80">
                       Server name
@@ -126,7 +126,7 @@ const InitialModal = () => {
         </Form>
       </DialogContent>
     </Dialog>
-  );
-};
+  )
+}
 
-export default InitialModal;
+export default InitialModal
