@@ -36,7 +36,13 @@ const NavigationItem = ({ id, name, imageUrl }: NavigationItemProps) => {
             params?.serverId !== id && 'rounded-2xl bg-primary/10 text-primary',
           )}
         >
-          <Image fill src={imageUrl} alt={`Image of ${name} server`} />
+          <Image
+            fill
+            src={imageUrl}
+            alt={`Image of ${name} server`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="eager"
+          />
         </div>
       </button>
     </ActionTooltip>

@@ -1,6 +1,6 @@
 import { Server as NetServer } from 'http'
 import { NextApiRequest } from 'next'
-import { Server as ServerIo } from 'socket.io'
+import { Server as ServerIO } from 'socket.io'
 
 import { NextApiResponseServerIo } from '@/types'
 
@@ -10,17 +10,18 @@ export const config = {
   },
 }
 
-const ioHandler = (_req: NextApiRequest, res: NextApiResponseServerIo) => {
+const ioHandler = (req: NextApiRequest, res: NextApiResponseServerIo) => {
   if (!res.socket.server.io) {
     const path = '/api/socket/io'
-    const httpServer: unknown = res.socket.server
-    const io = new ServerIo(httpServer as NetServer, {
+    const httpServer = res.socket.server as NetServer
+    const io = new ServerIO(httpServer, {
       path,
-      // @ts-expect-error -- https://socket.io/docs/v3/server-initialization/#socketio-server-options
+      // @ts-expect-error - E.
       addTrailingSlash: false,
     })
     res.socket.server.io = io
   }
+
   res.end()
 }
 
