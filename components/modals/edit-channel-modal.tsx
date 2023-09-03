@@ -3,7 +3,9 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ChannelType } from '@prisma/client'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import qs from 'query-string'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
@@ -32,8 +34,6 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useModal } from '@/hooks/use-modal-store'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 
 const formSchema = z.object({
   name: z

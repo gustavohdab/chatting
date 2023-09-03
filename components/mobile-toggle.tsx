@@ -1,4 +1,5 @@
 import { Menu } from 'lucide-react'
+
 import NavigationSidebar from './navigation/navigation-sidebar'
 import { ServerSidebar } from './server/server-sidebar'
 import { Button } from './ui/button'

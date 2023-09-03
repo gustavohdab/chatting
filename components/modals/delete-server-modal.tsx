@@ -1,9 +1,9 @@
 'use client'
 
-import { useModal } from '@/hooks/use-modal-store'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+
 import { Button } from '../ui/button'
 import {
   Dialog,
@@ -13,6 +13,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from '../ui/dialog'
+
+import { useModal } from '@/hooks/use-modal-store'
 
 const DeleteServerModal = () => {
   const { isOpen, onClose, type, data } = useModal()

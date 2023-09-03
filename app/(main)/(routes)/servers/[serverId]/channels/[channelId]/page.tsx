@@ -1,13 +1,13 @@
 import { redirectToSignIn } from '@clerk/nextjs'
-import { redirect } from 'next/navigation'
 import { ChannelType } from '@prisma/client'
+import { redirect } from 'next/navigation'
 
-import { currentProfile } from '@/lib/current-profile'
-import { MediaRoom } from '@/components/media-room'
-import { db } from '@/lib/db'
 import ChatHeader from '@/components/chat/chat-header'
-import ChatMessages from '@/components/chat/chat-messages'
 import ChatInput from '@/components/chat/chat-input'
+import ChatMessages from '@/components/chat/chat-messages'
+import { MediaRoom } from '@/components/media-room'
+import { currentProfile } from '@/lib/current-profile'
+import { db } from '@/lib/db'
 
 interface ChannelIdPageProps {
   params: {

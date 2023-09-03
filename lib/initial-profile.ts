@@ -1,4 +1,5 @@
 import { currentUser, redirectToSignIn } from '@clerk/nextjs'
+
 import { db } from '@/lib/db'
 
 const formatName = (firstName: string | null, lastName: string | null) => {

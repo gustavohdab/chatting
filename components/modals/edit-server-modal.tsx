@@ -1,11 +1,12 @@
 'use client'
 
-import { useModal } from '@/hooks/use-modal-store'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+
 import FileUpload from '../file-upload'
 import { Button } from '../ui/button'
 import {
@@ -25,7 +26,8 @@ import {
   FormMessage,
 } from '../ui/form'
 import { Input } from '../ui/input'
-import { useEffect } from 'react'
+
+import { useModal } from '@/hooks/use-modal-store'
 
 const formSchema = z.object({
   name: z.string().nonempty('Server name is required.'),

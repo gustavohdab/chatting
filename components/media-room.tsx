@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useUser } from '@clerk/nextjs'
 import { LiveKitRoom, VideoConference } from '@livekit/components-react'
 import '@livekit/components-styles'
-import { useUser } from '@clerk/nextjs'
 import { Loader2 } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 interface MediaRoomProps {
   chatId: string

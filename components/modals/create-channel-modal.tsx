@@ -1,12 +1,15 @@
 'use client'
 
-import qs from 'query-string'
-import axios from 'axios'
-import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
 import { ChannelType } from '@prisma/client'
+import axios from 'axios'
+import { useParams, useRouter } from 'next/navigation'
+import qs from 'query-string'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
 
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -23,9 +26,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { useParams, useRouter } from 'next/navigation'
-import { useModal } from '@/hooks/use-modal-store'
 import {
   Select,
   SelectContent,
@@ -33,7 +33,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { useEffect } from 'react'
+import { useModal } from '@/hooks/use-modal-store'
 
 const formSchema = z.object({
   name: z

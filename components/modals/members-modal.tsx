@@ -1,11 +1,8 @@
 'use client'
 
-import { useModal } from '@/hooks/use-modal-store'
-import { ServerWithMembersWithProfiles } from '@/types'
+import { MemberRole } from '@prisma/client'
 import { DialogDescription } from '@radix-ui/react-dialog'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
-import { ScrollArea } from '../ui/scroll-area'
-import UserAvatar from '../user-avatar'
+import axios from 'axios'
 import {
   Check,
   Gavel,
@@ -16,7 +13,11 @@ import {
   ShieldCheck,
   ShieldQuestion,
 } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import qs from 'query-string'
 import { useState } from 'react'
+
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,10 +29,11 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
-import { MemberRole } from '@prisma/client'
-import qs from 'query-string'
-import axios from 'axios'
-import { useRouter } from 'next/navigation'
+import { ScrollArea } from '../ui/scroll-area'
+import UserAvatar from '../user-avatar'
+
+import { useModal } from '@/hooks/use-modal-store'
+import { ServerWithMembersWithProfiles } from '@/types'
 
 const roleIconMap = {
   GUEST: null,

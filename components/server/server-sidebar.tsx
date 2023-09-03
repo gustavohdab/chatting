@@ -1,15 +1,18 @@
-import { currentProfile } from '@/lib/current-profile'
-import { db } from '@/lib/db'
 import { ChannelType, MemberRole } from '@prisma/client'
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from 'lucide-react'
 import { redirect } from 'next/navigation'
+
 import { ScrollArea } from '../ui/scroll-area'
-import ServerHeader from './server-header'
-import ServerSearch from './server-search'
 import { Separator } from '../ui/separator'
-import ServerSection from './server-section'
+
 import { ServerChannel } from './server-channel'
+import ServerHeader from './server-header'
 import ServerMember from './server-member'
+import ServerSearch from './server-search'
+import ServerSection from './server-section'
+
+import { currentProfile } from '@/lib/current-profile'
+import { db } from '@/lib/db'
 
 interface ServerSidebarProps {
   serverId: string

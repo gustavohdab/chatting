@@ -11,14 +11,15 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
+import { EmojiPicker } from '../emoji-picker'
+import UserAvatar from '../user-avatar'
+
 import { ActionTooltip } from '@/components/action-tooltip'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { useModal } from '@/hooks/use-modal-store'
 import { cn } from '@/lib/utils'
-import UserAvatar from '../user-avatar'
-import { EmojiPicker } from '../emoji-picker'
 
 interface ChatItemProps {
   id: string

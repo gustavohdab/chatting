@@ -3,6 +3,7 @@
 import { Command, SearchIcon } from 'lucide-react'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+
 import {
   CommandDialog,
   CommandEmpty,

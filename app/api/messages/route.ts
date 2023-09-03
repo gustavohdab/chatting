@@ -1,7 +1,8 @@
-import { currentProfile } from '@/lib/current-profile'
-import { db } from '@/lib/db'
 import { Message } from '@prisma/client'
 import { NextRequest, NextResponse } from 'next/server'
+
+import { currentProfile } from '@/lib/current-profile'
+import { db } from '@/lib/db'
 
 const MESSAGES_BATCH = 10
 
